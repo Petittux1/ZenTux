@@ -1,0 +1,55 @@
+/*The following code makes it so that all the buttons on the right side of the URL bar are made scroillable - instrad of a million buttons, there is just one shown at any given time. This CSS was not written by me, it was taken from the Dark Harmony them by itsmefen on Discord.e*/
+
+/* Hide Some Icons */
+#userContext-icons,
+#identity-icon-box,
+#star-button-box,
+#urlbar-zoom-button {
+display: none !important;
+}
+
+/* Left Info */
+#identity-permission-box {
+background: transparent !important;
+width: 24px !important;
+border-radius: 4px 0px 0px 4px !important;
+}
+
+/* Shield */
+#tracking-protection-icon-container {
+height: 34px !important;
+width: 24px !important;
+border-radius: 0px !important;
+top: 0px !important;
+position:relative !important;
+right: 0px !important;
+}
+
+/* Compact page action */
+#page-action-buttons {
+position: relative;
+width: 30px !important;
+height: 34px !important;
+flex-wrap: wrap;
+margin-right: -4px;
+margin-top: -0px;
+margin-bottom: -2px;
+top:0 !important;
+overflow: scroll;
+}
+#page-action-buttons > hbox {
+background: color-mix(in srgb, var(--tab-group-color-gray-invert) 15%, transparent) !important;
+width: 32px !important;
+height: 100% !important;
+border-radius: 0px !important;
+}
+#urlbar
+{margin:0 !important;} 
+#urlbar:hover #star-button-box {
+display: flex !important;
+background: color-mix(in srgb, var(--tab-group-color-gray-invert) 15%, transparent) !important;
+width: 32px !important;
+height: 100% !important;
+align-content: center !important;
+justify-self: center !important;
+}
