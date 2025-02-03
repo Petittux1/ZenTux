@@ -1,4 +1,4 @@
-## Compilation of CSS mods
+## ZenTux - Ultimate Compilation of CSS mods
 You will get natsumi with some personal tweaks, cohesion, 
 modernfindbar, hiddentoolbar, toucantweaks (modified to be working on my setup)
 Unfocused-Fade, Wazz, Some js spricts to get some better colors for folders,
