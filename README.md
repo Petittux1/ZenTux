@@ -14,8 +14,8 @@ Some issues may still remain, i will make the github look better and be more und
 ![图片](https://github.com/user-attachments/assets/cf41633a-1020-4c15-835f-e3f5ae25ae50)
 ![图片](https://github.com/user-attachments/assets/9a25dfa1-0d9d-4175-9154-44027f6a55d7)
 
-### YOU WILL NEED TO MAKE CHANGES IN ABOUT:CONFIG, PLEASE CHECK NATSUMI GITHUB AND FOLLOW THE INTRUSCTIONS THERE ! 
-### YOU CAND FIND THE CHROME FOLDER IN ABOUT:SUPPORT --- yourprofile --- if there is no chrome folder just create one
+### YOU WILL NEED TO MAKE CHANGES IN ABOUT:CONFIG, PLEASE CHECK NATSUMI GITHUB AND FOLLOW THE INSTRUCTIONS THERE ! 
+### YOU CAN FIND THE CHROME FOLDER IN ABOUT:SUPPORT --- yourprofile --- if there is no chrome folder just create one
 (Maybe i'll upload the instructions here after an update on my git !)
 https://github.com/greeeen-dev/natsumi-browser
 
