@@ -25,34 +25,6 @@ src: url("./JetBrainsMono.ttf");
 font-family: "JetBrainsMono", Arial;
 }
 }
-/* B. Colouring Essentials */
-#zen-essentials-container {
-  .tabbrowser-tab[pinned]:nth-of-type(6n+5) .tab-background { /* green */
-    background-color: color-mix(in srgb,var(--tab-group-color-green-invert) 10%, transparent)!important;
-    border: 1px solid color-mix(in srgb,var(--tab-group-color-green-invert) 15%, transparent) !important;
-  }
-  .tabbrowser-tab[pinned]:nth-of-type(6n+6) .tab-background { /* pink */
-    background-color: color-mix(in srgb,var(--tab-group-color-pink-invert) 10%, transparent) !important;
-    border: 1px solid color-mix(in srgb,var(--tab-group-color-pink-invert) 15%, transparent) !important;
-  }
-  .tabbrowser-tab[pinned]:nth-of-type(6n+3) .tab-background { /* purple */
-    background-color:  color-mix(in srgb,var(--tab-group-color-purple-invert) 10%, transparent) !important;
-    border: 1px solid  color-mix(in srgb,var(--tab-group-color-purple-invert) 15%, transparent) !important;
-  }
-  .tabbrowser-tab[pinned]:nth-of-type(6n+2) .tab-background { /* red */
-    background-color:  color-mix(in srgb,var(--tab-group-color-red-invert) 10%, transparent) !important;
-    border: 1px solid  color-mix(in srgb,var(--tab-group-color-red-invert) 15%, transparent) !important;
-  }
-  .tabbrowser-tab[pinned]:nth-of-type(6n+1) .tab-background { /* blue */
-    background-color: color-mix(in srgb,var(--tab-group-color-blue-invert) 10%, transparent) !important;
-    border: 1px solid color-mix(in srgb,var(--tab-group-color-blue-invert) 15%, transparent) !important;
-  }
-  .tabbrowser-tab[pinned]:nth-of-type(6n+4) .tab-background { /* yellow */
-    background-color:  color-mix(in srgb,var(--tab-group-color-yellow-invert) 10%, transparent) !important;
-    border: 1px solid  color-mix(in srgb,var(--tab-group-color-yellow-invert) 15%, transparent) !important;
-  }
-}
-
 /* C. Audio Indicator */
 #zen-essentials-container .tabbrowser-tab[pinned] {
   &:is([soundplaying]) .tab-background {
@@ -72,68 +44,6 @@ font-family: "JetBrainsMono", Arial;
   background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 26%, transparent) !important;
   border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 25%, transparent) !important;
 }
-
-/*------------ NORMAL TAB CUSTOMIZATION ------------*/
-
-/* A. General Customization */
-
-/* adjusting tab height */
-:root {
-  --tab-min-height: 34px !important;
-}
-.tab-content:not([pinned]) {
-  margin: 0px 0px 0px -2px !important;
-}
-.tabbrowser-tab:not([pinned]) .tab-background {
-  background-color: color-mix(in srgb, var(--tab-group-color-gray-invert) 4%, transparent) !important;
-  border: 1px solid color-mix(in srgb, var(--tab-group-color-gray-invert) 14%, transparent) !important;
-  border-left: 28px solid color-mix(in srgb, var(--tab-group-color-gray-invert) 14%, transparent) !important;
-  border-radius: 4px !important;
-  margin: 2px 2px !important; /* adjusting tab width */
-}
-
-/* text on general tab bar */
-.tab-text:not([pinned]) {
-  margin-top: 1px !important;
-  margin-left: 6px !important;
-  opacity: 80%;
-}
-/* tab close button */
-.tab-close-button:not([pinned]) {
-  scale: 0.8;
-  border-radius: 6px !important;
-  border: 1px solid #ffffff0c !important;
-}
-/* reduce favicon sizes */
-.tab-icon-image:not([pinned]) {
-  width: 14px !important;
-  height: 14px !important;
-  margin-left: 3.5px !important;
-}
-
-/* B. Audio Indicator */
-.tabbrowser-tab:not([pinned]) {
-  &:is([soundplaying]) .tab-background {
-    background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-    border-left: 28px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-  }
-  &:is([muted]) .tab-background {
-    background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-    border-left: 28px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-  }
-}
-
-/* C. Selected Indicator */
-.tabbrowser-tab:is([selected],
-[visuallyselected],
-[multiselected]) .tab-background {
-  background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 15%, transparent) !important;
-  border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 20%, transparent) !important;
-  border-left: 28px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 20%, transparent) !important;
-}
-
 /*------------ PINNED TAB CUSTOMIZATION ------------*/
 
 /* A. Container Manipulation */
@@ -147,12 +57,6 @@ font-family: "JetBrainsMono", Arial;
   margin-left: 0px !important;
 }
 #vertical-pinned-tabs-container {
-
-  /* B. General Customization */
-  .tab-content:is([pinned]) {
-    height: auto !important;
-    margin: 2px 0px 2px -4px !important;
-  }
   .tabbrowser-tab:is([pinned]) .tab-background {
     background-color: color-mix(in srgb, var(--tab-group-color-gray-invert) 4%, transparent) !important;
     border: 1px solid color-mix(in srgb, var(--tab-group-color-gray-invert) 14%, transparent) !important;
@@ -160,26 +64,6 @@ font-family: "JetBrainsMono", Arial;
     */border-radius: 4px !important;
     margin: 2px 2px !important;
   }
-
-/* text on general tab bar */
-  .tab-text:is([pinned]) {
-    margin-top: 1px !important;
-    margin-left: 6px !important;
-    opacity: 80%;
-  }
-/* tab close button */
-  .tab-close-button:is([pinned]) {
-    scale: 0.8;
-    border-radius: 6px !important;
-    border: 1px solid #ffffff0c !important;
-  }
-/* reduce favicon sizes */
-  .tab-icon-image:is([pinned]) {
-    width: 14px !important;
-    height: 14px !important;
-    margin-left: 3.5px !important;
-  }
-
 /* C. Audio Indicator */
   .tabbrowser-tab:is([pinned]) {
     &:is([soundplaying]) .tab-background {
@@ -202,20 +86,6 @@ font-family: "JetBrainsMono", Arial;
     border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 20%, transparent) !important;
   }
 }
-
-/*------------ NEW TAB BUTTON CUSTOMIZATION ------------*/
-/* New Tab Button Opacity */
-#tabs-newtab-button {
-  border-radius: 4px !important;
-  opacity: 30% !important;
-  border: 1px solid transparent !important;
-  margin-top: -5px !important;
-}
-#tabs-newtab-button:hover {
-  background: none !important;
-  opacity: 60% !important;
-}
-
 /*------------ PLAYING/MUTE ICON APPEARANCE CUSTOMIZATION ------------*/
 
 /* A. For normal and pinned tab */

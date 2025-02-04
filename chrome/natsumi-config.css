@@ -41,11 +41,7 @@ as they use the correct format.
   --ff-sidebar-x-offset: 20px;
   --ff-sidebar-y-offset: 20px;
 
-  /* Bouncing sidebar experiment */
-  --sidebar-bounce-distance: 8px;
-  --sidebar-bounce-duration: 0.3s;
-
-  /* Custom fonts experiment */
+  /* Custom fonts experiment (must be an installed font) */
   --custom-font: 'Nunito';
 
   /* pdf.js */

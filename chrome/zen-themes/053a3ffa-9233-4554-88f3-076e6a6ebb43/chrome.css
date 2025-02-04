@@ -1,0 +1,1 @@
+@-moz-document url-prefix("chrome:") {  @media not (-moz-bool-pref: "zen.view.sidebar-expanded") {    .tab-icon-overlay:is([soundplaying],    [muted],    [activemedia-blocked]) {      display: none !important;    }    .tab-icon-image {      opacity: 1 !important;    }  }  }

@@ -111,8 +111,3 @@ browser, .browserSidebarContainer.deck-selected {
   --natsumi-sidebar-x-offset: var(--ff-sidebar-x-offset, 20px);
   --natsumi-sidebar-y-offset: var(--ff-sidebar-y-offset, 20px);
 }
-
-#navigator-toolbox {
-  --natsumi-bounce-magnitude: var(--sidebar-bounce-distance, 8px);
-  --natsumi-bounce-duration: var(--sidebar-bounce-duration, 0.3s);
-}

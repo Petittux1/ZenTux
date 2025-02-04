@@ -344,9 +344,10 @@ their author(s) have been provided above the used code.
 
       /*noinspection CssInvalidFunction*/
       #urlbar-background {
-        backdrop-filter: blur(var(--natsumi-glass-blur-radius));
+        backdrop-filter: blur(var(--natsumi-glass-blur-radius)) !important;
         background: var(--natsumi-glass-background) !important;
         transition: backdrop-filter 0.5s ease, background 0.5s ease;
+        border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
         border-radius: 15px !important;
 
         /*noinspection CssInvalidFunction*/
@@ -461,7 +462,7 @@ their author(s) have been provided above the used code.
       margin-bottom: auto !important;
     }
 
-    .urlbarView-button {
+    .urlbarView-button-menu {
       display: inline-block !important;
       min-width: 0 !important;
       min-height: 0 !important;
@@ -494,7 +495,7 @@ their author(s) have been provided above the used code.
         background-color: light-dark(var(--natsumi-primary-color), var(--natsumi-colors-primary)) !important;
       }
 
-      .urlbarView-button {
+      .urlbarView-button-menu {
         max-width: 24px !important;
         max-height: 24px !important;
         width: 24px !important;
@@ -502,6 +503,32 @@ their author(s) have been provided above the used code.
         opacity: 1;
         margin-left: 2px !important;
         margin-right: 2px !important;
+      }
+    }
+
+    &:has(.urlbarView-button-menu:hover) {
+      transform: scale(1, 1) !important;
+
+      .urlbarView-row-inner {
+        transform: scale(1, 1) !important;
+        box-shadow: none !important;
+        background-color: transparent !important;
+      }
+
+      .urlbarView-favicon {
+        background-color: transparent !important;
+      }
+    }
+
+    &:not(:has(.urlbarView-button-menu:hover)) {
+      .urlbarView-row:hover .urlbarView-row-inner, .urlbarView-row-inner[selected] {
+        .urlbarView-no-wrap .urlbarView-favicon {
+          background-color: color-mix(in srgb, light-dark(rgba(0, 0, 0, 0.3), var(--natsumi-colors-primary-foreground)) 50%, transparent) !important;
+        }
+
+        .urlbarView-url {
+          color: light-dark(var(--natsumi-colors-primary), var(--natsumi-colors-primary-foreground)) !important;
+        }
       }
     }
 
@@ -516,17 +543,7 @@ their author(s) have been provided above the used code.
     color: light-dark(var(--natsumi-colors-primary), var(--natsumi-colors-primary-foreground)) !important;
   }
 
-  .urlbarView-row:hover .urlbarView-row-inner, .urlbarView-row-inner[selected] {
-    .urlbarView-no-wrap .urlbarView-favicon {
-      background-color: color-mix(in srgb, light-dark(rgba(0, 0, 0, 0.3), var(--natsumi-colors-primary-foreground)) 50%, transparent) !important;
-    }
-
-    .urlbarView-url {
-      color: light-dark(var(--natsumi-colors-primary), var(--natsumi-colors-primary-foreground)) !important;
-    }
-  }
-
-  .urlbarView-action, .urlbarView-button,
+  .urlbarView-action, .urlbarView-button:not(.urlbarView-button-menu),
   .searchbar-engine-one-off-item {
     --urlbar-box-focus-bgcolor: color-mix(in srgb, currentColor 16%, transparent);
     transition: background-color 0.2s ease !important;
@@ -550,5 +567,62 @@ their author(s) have been provided above the used code.
   /*noinspection CssInvalidFunction*/
   .urlbarView-body-inner, .search-one-offs {
     border-top: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.2)) !important;
+  }
+
+  /* Compact URLbar */
+
+  @media (-moz-bool-pref: "natsumi.urlbar.compact") {
+    @media not (-moz-bool-pref: "zen.view.use-single-toolbar") {
+      @media (-moz-bool-pref: "zen.tabs.vertical") {
+        #urlbar:not([breakout-extend="true"]) {
+          --urlbar-anim-time: 0.2s;
+          #urlbar-background {
+            opacity: 1 !important;
+            transition: opacity var(--urlbar-anim-time) ease;
+          }
+
+          .urlbar-input-container {
+            max-width: 100% !important;
+            left: 0 !important;
+            transition: max-width var(--urlbar-anim-time) ease, left var(--urlbar-anim-time) ease;
+          }
+
+          .urlbar-input-box {
+            text-align: center !important;
+          }
+
+          #identity-icon-box {
+            transition: padding var(--urlbar-anim-time) ease, background var(--urlbar-anim-time) ease;
+          }
+
+          #tracking-protection-icon-container, .urlbar-page-action {
+            transition: width var(--urlbar-anim-time) ease, opacity var(--urlbar-anim-time) ease, margin var(--urlbar-anim-time) ease;
+          }
+
+          &:not(:hover):not([focused]):not(:has(.urlbar-page-action[open], #tracking-protection-icon-container[open], .identity-box-button[open])) {
+            #identity-icon-box {
+              padding-left: 6px !important;
+              padding-right: 6px !important;
+              background: none !important;
+            }
+
+            #tracking-protection-icon-container, .urlbar-page-action {
+              width: 0 !important;
+              opacity: 0 !important;
+              margin: 0 !important;
+            }
+
+            #urlbar-background {
+              opacity: 0 !important;
+            }
+
+            .urlbar-input-container {
+              max-width: 300px !important;
+              left: calc(50% - 150px) !important;
+            }
+          }
+        }
+      }
+    }
   }
 }

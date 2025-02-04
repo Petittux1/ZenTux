@@ -29,6 +29,32 @@ their author(s) have been provided above the used code.
 
 /* ==== Base UI v2 (Sidebars and tabs) ==== */
 
+/* Marginless compact mode */
+
+:root[zen-compact-mode="true"]:not([customizing]) {
+  @media (-moz-bool-pref: "natsumi.theme.compact-marginless") {
+    #zen-appcontent-wrapper:not(:has(#tabbrowser-tabpanels[zen-split-view])) {
+      margin: 0 !important;
+
+      #zen-tabbox-wrapper {
+        margin: 0 !important;
+
+        .browserSidebarContainer, browser {
+          margin: 0 !important;
+          border-radius: 0 !important;
+          clip-path: none !important;
+        }
+
+        @media not (-moz-bool-pref: "natsumi.theme.disable-blur") {
+          browser {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
 /* Workspaces button */
 
 #zen-workspaces-button {
@@ -130,16 +156,24 @@ their author(s) have been provided above the used code.
 
       &::before {
         opacity: 1;
-        width: 25%;
+        width: var(--container-gradient-width);
         background-color: var(--identity-tab-color);
         mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+      }
+    }
+
+    &:not([selected]) {
+      @media (-moz-bool-pref: "natsumi.sidebar.container-tabs-border-no-inactive") {
+        .tab-background {
+          border: none !important;
+        }
       }
     }
 
     &:hover {
       .tab-background {
         &::before {
-          width: 50%;
+          width: var(--container-gradient-width-expanded);
         }
       }
     }
@@ -227,6 +261,11 @@ their author(s) have been provided above the used code.
 
 #tabbrowser-tabs {
   overflow: visible !important;
+
+  &:has(> #zen-browser-tabs-wrapper[style*="translateX"]:not([style*="translateX(0px)"])),
+  &:has(> #zen-current-workspace-indicator[style*="translateX"]:not([style*="translateX(0px)"])){
+    overflow: hidden !important;
+  }
 }
 
 #zen-essentials-container {
@@ -240,7 +279,7 @@ their author(s) have been provided above the used code.
     }
 
     .tab-background {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3) !important;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3) !important;
     }
 
     &:not([usercontextid]) .tab-background {
@@ -280,27 +319,30 @@ their author(s) have been provided above the used code.
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
       }
 
-      .tab-background {
-        /*noinspection CssInvalidFunction*/
-        &::before {
-          width: calc(100% - 4px) !important;
-          height: calc(100% - 4px) !important;
-          mask-image: none !important;
-          background: light-dark(rgba(255, 255, 255, 0.3), rgba(68, 64, 64, 0.3)) !important;
-        }
+      @media (-moz-bool-pref: "zen.theme.essentials-favicon-bg") {
+        .tab-background {
+          /*noinspection CssInvalidFunction*/
+          &::before {
+            width: calc(100% - 4px) !important;
+            height: calc(100% - 4px) !important;
+            mask-image: none !important;
+            background: light-dark(rgba(255, 255, 255, 0.3), rgba(68, 64, 64, 0.3)) !important;
+            border-radius: calc(var(--border-radius-medium) - 3px) !important;
+          }
 
-        &::after {
-          left: -50% !important;
-          top: -50% !important;
-          width: 200% !important;
-          height: 200% !important;
-          filter: saturate(150%) blur(15px) !important;
+          &::after {
+            left: -50% !important;
+            top: -50% !important;
+            width: 200% !important;
+            height: 200% !important;
+            filter: saturate(150%) blur(15px) !important;
+          }
         }
       }
 
       &[usercontextid] {
         .tab-background::before {
-          border-radius: 10px !important;
+          border-radius: calc(var(--border-radius-medium) - 1px) !important;
           margin: 0 !important;
           border: 2px solid var(--identity-tab-color) !important;
         }
@@ -323,6 +365,42 @@ their author(s) have been provided above the used code.
         }
       }
     }
+
+    &[usercontextid][zenDefaultUserContextId] {
+      @media (-moz-bool-pref: "zen.workspaces.hide-default-container-indicator") {
+        .tab-background {
+          border: 1px solid var(--natsumi-primary-color) !important;
+
+          @media (prefers-color-scheme: dark) {
+            border: 1px solid var(--natsumi-colors-primary) !important;
+          }
+
+          &::before {
+            width: 0;
+            background-color: var(--natsumi-primary-color);
+            opacity: 0;
+          }
+        }
+
+        &:hover {
+          .tab-background::before {
+            width: 25%;
+            opacity: 1;
+          }
+        }
+
+        &[selected] {
+          /*noinspection CssInvalidFunction*/
+          .tab-background::before {
+            opacity: 1;
+            background: light-dark(rgba(255, 255, 255, 0.3), rgba(68, 64, 64, 0.3)) !important;
+            border-radius: calc(var(--border-radius-medium) - 3px) !important;
+            border: none !important;
+            margin: 2px !important;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -339,8 +417,89 @@ their author(s) have been provided above the used code.
     }
 
     &[selected] {
-      .tab-background {
-        border: none !important;
+      @media not (-moz-bool-pref: "natsumi.sidebar.container-tabs-border") {
+        .tab-background {
+          border: none !important;
+        }
+      }
+    }
+
+    &:not([selected]) {
+      /* Enforce pinned tabs border */
+      @media (-moz-bool-pref: "natsumi.sidebar.container-tabs-border-no-inactive") {
+        .tab-background {
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+          @media (prefers-color-scheme: dark) {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          }
+        }
+      }
+    }
+
+    &[usercontextid][zenDefaultUserContextId] {
+      @media (-moz-bool-pref: "zen.workspaces.hide-default-container-indicator") {
+        .tab-background {
+          border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+          @media (prefers-color-scheme: dark) {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          }
+
+          &::before {
+            width: 0;
+            opacity: 0;
+            background-color: var(--natsumi-primary-color);
+          }
+        }
+
+        &:hover {
+          .tab-background::before {
+            width: 25%;
+            opacity: 1;
+          }
+        }
+
+        &[selected] {
+          .tab-background::before {
+            width: 50% !important;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Normal tabs */
+
+#tabbrowser-arrowscrollbox {
+  .tabbrowser-tab {
+    &[usercontextid][zenDefaultUserContextId] {
+      @media (-moz-bool-pref: "zen.workspaces.hide-default-container-indicator") {
+        .tab-background {
+          border: none !important;
+
+          &::before {
+            width: 0;
+            opacity: 0;
+            background-color: var(--natsumi-primary-color);
+          }
+        }
+
+        &:hover {
+          .tab-background::before {
+            width: 25%;
+            opacity: 1;
+          }
+        }
+
+        &[selected] {
+          .tab-background::before {
+            width: 50% !important;
+            opacity: 1;
+          }
+        }
       }
     }
   }

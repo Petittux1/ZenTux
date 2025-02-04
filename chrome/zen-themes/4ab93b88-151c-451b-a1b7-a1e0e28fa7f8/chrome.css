@@ -1,0 +1,1 @@
+@-moz-document url-prefix("chrome:") {  scrollbox:nth-child(5) {    scrollbar-width: none !important;  }  /* Pinned Tabs */  #vertical-pinned-tabs-container {    scrollbar-width: none !important;  }}

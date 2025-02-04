@@ -71,6 +71,10 @@ their author(s) have been provided above the used code.
       }
     }
 
+    .promo {
+      display: none !important;
+    }
+
     .customize-menu {
       height: calc(100% - 20px) !important;
       top: 10px !important;
