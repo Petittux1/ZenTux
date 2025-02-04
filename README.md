@@ -1,7 +1,7 @@
 ## ZenTux - Ultimate Compilation of CSS mods
 You will get natsumi with some personal tweaks, cohesion, 
 modernfindbar, hiddentoolbar, toucantweaks (modified to be working on my setup)
-Unfocused-Fade, Wazz, Some js spricts to get some better colors for folders,
+Unfocused-Fade, Wazz, Some js scripts to get some better colors for folders,
 and finally a part of dark harmony.
 ### You will also get a better minimalexitmenu, so be sure to uninstall the official "Better minimal exit menu" mod in "Zen mods" if you downloaded it on official Zedmods !
 https://zen-browser.app/mods/6cd4bca9-f17d-4461-b554-844d69a4887c/
