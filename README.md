@@ -26,6 +26,45 @@ Some issues may still remain, i will make the github look better and be more und
 (Maybe i'll upload the instructions here after an update on my git !)
 https://github.com/greeeen-dev/natsumi-browser
 
+## LIST OF ZEN MODS I'M USING ON TOP OF THESE CSS MODS :
+
+-Bookmark Toolbar Tweaks (v1.2.2) (For the bookmarks on top of the pinned tabs)
+
+-Bottom Essentials (v1.0.0)
+
+-Cleaned URL bar (v1.0.2)
+
+-Cleaner Extension Menu (v1.0.0)
+
+-Collapsed Tab X Button (v1.0.0)
+
+-Exit Button Right Padding (v1.0.0)
+
+-Floating Status Bar (v1.0.0)
+
+-Hide Extension Name (v1.0.0)
+
+-Hide tab mute (v1.0.1)
+
+-Midnight (v1.0.0) (can't find it on zen mods store anymore, but it's not necessary, it's just making some things purple)
+
+-No Sidebar Scrollbar (v1.0.6)
+
+-NoHighlightSplit (v1.1.0)
+
+-Only Close On Hover (v1.0.0)
+
+-Pimp your PiP (v1.0.0)
+
+### -SuperPins (v1.4.2)
+![图片](https://github.com/user-attachments/assets/30f6dc33-b7c5-499c-a86c-1d2715d75d1a)
+
+### -Super Url Bar (v1.4.2)
+![图片](https://github.com/user-attachments/assets/0eeedf20-93f9-4cae-b918-a3a0396f477a)
+
+
+-Tab Preview Enhanced (v1.1.0)
+
 Pour les amis français, si vous avez un problème, n'hésitez pas à me le dire en français !
 中国朋友们如果有什么问题的话可以用中文跟我交流，我会说地道的中文 !
 目前情况下还有点乱，但当我有空的时候，我会优化一下我的 git !
