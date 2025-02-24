@@ -24,7 +24,7 @@ Some issues may still remain, i will make the github look better and be more und
 (Maybe i'll upload the instructions here after an update on my git !)
 https://github.com/greeeen-dev/natsumi-browser
 
-## LIST OF ZEN MODS I'M USING ON TOP OF THESE CSS MODS :
+# LIST OF ZEN MODS I'M USING ON TOP OF THESE CSS MODS :
 
 -Bookmark Toolbar Tweaks (v1.2.2) (For the bookmarks on top of the pinned tabs)
 
