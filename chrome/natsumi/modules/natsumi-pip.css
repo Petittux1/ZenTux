@@ -33,7 +33,7 @@ their author(s) have been provided above the used code.
   @-moz-document url("chrome://global/content/pictureinpicture/player.xhtml") {
     /*noinspection CssInvalidFunction*/
     * {
-      --natsumi-primary-color: #aac7ff;
+      --natsumi-primary-color: #a0d490;
       --natsumi-colors-primary: color-mix(in srgb, var(--natsumi-primary-color) 50%, black 50%);
       --natsumi-colors-secondary: color-mix(in srgb, var(--natsumi-colors-primary) 20%, white 80%);
 
@@ -43,9 +43,13 @@ their author(s) have been provided above the used code.
       }
 
       --natsumi-glass-background: color-mix(in srgb, var(--natsumi-colors-secondary) 75%, transparent);
-      --natsumi-glass-shadow-background: color-mix(in srgb, var(--natsumi-colors-secondary) 75%, light-dark(black, white));
+      --natsumi-glass-shadow-color: color-mix(in srgb, var(--natsumi-colors-secondary) 75%, light-dark(black, white));
       --toolbarbutton-hover-background: color-mix(in srgb, light-dark(#1d1d1d, #ebebeb) 10%, transparent 90%);
       --toolbarbutton-active-background: light-dark(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.11));
+
+      @media (-moz-bool-pref: "natsumi.theme.force-dark-shadows") {
+        --natsumi-glass-shadow-color: color-mix(in srgb, var(--natsumi-colors-secondary) 75%, black);
+      }
     }
 
     @keyframes pip-fadein-html {
@@ -94,16 +98,52 @@ their author(s) have been provided above the used code.
       & > button {
         opacity: 0 !important;
         top: 0 !important;
-        filter: blur(15px);
+        filter: blur(5px);
         border-radius: 6px !important;
-        transition: opacity 0.3s ease, top 0.3s ease, filter 0.3s ease !important;
+        transition: opacity 0.3s ease, top 0.3s ease, filter 0.3s ease, background-color 0.2s ease !important;
+        backdrop-filter: blur(15px);
+        background-image: none !important;
+        background-color: var(--natsumi-glass-background) !important;
+        box-shadow: 0 0 10px var(--natsumi-glass-shadow-color) !important;
+        border: 1px solid rgba(20, 20, 20, 0.2) !important;
 
-        &#close {
-          background-image: url("chrome://browser/skin/zen-icons/close.svg") !important;
+        @media (prefers-color-scheme: dark) {
+          border: 1px solid rgba(235, 235, 235, 0.3) !important;
         }
 
-        &#unpip {
-          background-image: url("chrome://browser/skin/zen-icons/open.svg") !important;
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          padding: 2px;
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          align-content: center;
+          justify-content: center;
+          fill: white !important;
+
+          @media (prefers-color-scheme: light) {
+            fill: black !important;
+          }
+        }
+
+        &#close::before {
+          content: url("chrome://browser/skin/zen-icons/close.svg") !important;
+        }
+
+        &#unpip::before {
+          content: url("chrome://browser/skin/zen-icons/open.svg") !important;
+        }
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--natsumi-glass-background) 80%, white) !important;
+
+          @media (prefers-color-scheme: light) {
+            background-color: color-mix(in srgb, var(--natsumi-glass-background) 80%, black) !important;
+          }
         }
       }
 
@@ -122,7 +162,7 @@ their author(s) have been provided above the used code.
         margin: 0 5px !important;
         width: calc(100% - 10px) !important;
         box-sizing: border-box !important;
-        box-shadow: 0 0 10px var(--natsumi-glass-shadow-background) !important;
+        box-shadow: 0 0 10px var(--natsumi-glass-shadow-color) !important;
         backdrop-filter: blur(0);
         filter: blur(10px);
         transition: opacity 0.3s ease, bottom 0.3s ease, backdrop-filter 0.3s ease, filter 0.3s ease !important;
@@ -342,7 +382,7 @@ their author(s) have been provided above the used code.
           filter: blur(0);
           transition: backdrop-filter 0.3s ease, filter 0.3s ease;
           border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
-          box-shadow: 0 0 10px var(--natsumi-glass-shadow-background) !important;
+          box-shadow: 0 0 10px var(--natsumi-glass-shadow-color) !important;
           padding: 0 !important;
         }
 

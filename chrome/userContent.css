@@ -1,3 +1,4 @@
+@import "pineapple-fried/zen-new-tabs/zen-new-tabs.css";
 @import "natsumi-pages/natsumi-pages.css";
 
 @-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing), url(chrome://browser/content/browser.xul) {

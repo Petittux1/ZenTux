@@ -33,44 +33,19 @@ their author(s) have been provided above the used code.
 
 @keyframes urlbar-appear {
   0% {
-    margin-top: calc(var(--zen-toolbar-height) * -2);
-  }
-  75% {
-    margin-top: 20px;
+    margin-top: -50vh;
   }
   100% {
-    margin-top: 0;
+    margin-top: -20%;
   }
 }
 
 @keyframes urlbar-appear-sideways {
   0% {
-    margin-left: -28vw;
-  }
-  75% {
-    margin-left: 20px;
+    margin-left: calc(-50% + calc(min(90%, 60rem) / 2));
   }
   100% {
-    margin-left: calc(-1 * var(--urlbar-margin-inline));
-  }
-}
-
-/*noinspection CssInvalidFunction*/
-@keyframes results-appear {
-  0% {
-    opacity: 0;
-    margin-top: -90vh;
-  }
-  50% {
-    opacity: 0;
-    margin-top: -90vh;
-  }
-  75% {
-    opacity: 0;
-    margin-top: 0;
-  }
-  100% {
-    opacity: 1;
+    margin-left: 0;
   }
 }
 
@@ -78,21 +53,23 @@ their author(s) have been provided above the used code.
 @keyframes individual-result-appear {
   0%   {
     opacity: 0;
-    scale: 0.5;
+    scale: 0.7;
     background: var(--natsumi-colors-tertiary);
+    filter: blur(20px);
+    transform: translateY(-10px);
   }
   50% {
     opacity: 1;
   }
   60% {
-    opacity: 1;
-    scale: var(--expand-width);
     background: light-dark(var(--natsumi-primary-color), var(--natsumi-colors-primary));
+    filter: blur(0);
   }
   100% {
     opacity: 1;
     scale: 1;
     background: transparent;
+    transform: translateY(0);
   }
 }
 
@@ -165,8 +142,14 @@ their author(s) have been provided above the used code.
         }
       }
 
+      .urlbarView-row[has-action][type="clipboard"] {
+        .urlbarView-title-separator::before {
+          opacity: 0 !important;
+        }
+      }
+
       &:not([action-override]) {
-        .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"], [type="clipboard"]) {
+        .urlbarView-row[has-action]:is([type="switchtab"], [type="remotetab"]) {
           .urlbarView-action {
             margin-left: 8px !important;
           }
@@ -190,10 +173,6 @@ their author(s) have been provided above the used code.
         }
 
         #urlbar-results {
-          animation-name: results-appear;
-          animation-duration: var(--animation-duration);
-          counter-reset: results 0;
-
           .urlbarView-row {
             animation-name: individual-result-appear;
             animation-duration: var(--animation-duration);
@@ -298,10 +277,17 @@ their author(s) have been provided above the used code.
         }
       }
 
+      &[zen-newtab] {
+        #identity-icon {
+          list-style-image: url("chrome://browser/skin/zen-icons/plus.svg") !important;
+        }
+      }
+
       #urlbar-input {
         font-size: 20px !important;
-        margin-left: 2px !important;
+        margin-left: 1.5px !important;
         margin-right: 0 !important;
+        border-radius: 0 !important;
 
         @media (-moz-bool-pref: "zen.view.use-single-toolbar") {
           margin-left: 4px !important;
@@ -318,7 +304,7 @@ their author(s) have been provided above the used code.
       }
 
       #identity-icon-box {
-        margin-left: 1px !important;
+        margin-left: 1.5px !important;
         padding-left: 6px !important;
         padding-right: 6px !important;
         border-radius: var(--urlbar-icon-border-radius) !important;
@@ -334,10 +320,12 @@ their author(s) have been provided above the used code.
         }
       }
 
-      #identity-box {
-        &:is([pageproxystate="invalid"]).verifiedDomain {
-          image {
-            list-style-image: url('chrome://global/skin/icons/search-glass.svg') !important;
+      &:not([zen-newtab]) {
+        #identity-box {
+          &:is([pageproxystate="invalid"]).verifiedDomain {
+            image {
+              list-style-image: url('chrome://global/skin/icons/search-glass.svg') !important;
+            }
           }
         }
       }
@@ -349,10 +337,11 @@ their author(s) have been provided above the used code.
         transition: backdrop-filter 0.5s ease, background 0.5s ease;
         border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
         border-radius: 15px !important;
+        outline: unset !important;
 
         /*noinspection CssInvalidFunction*/
         @media not (-moz-bool-pref: "natsumi.theme.disable-glass-shadow") {
-          box-shadow: 0 0 var(--natsumi-glass-shadow-size) color-mix(in srgb, var(--natsumi-colors-secondary) var(--natsumi-glass-shadow-opacity), light-dark(black, white)) !important;
+          box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
         }
 
         @media (-moz-bool-pref: "natsumi.urlbar.disable-transparency") {
@@ -439,6 +428,7 @@ their author(s) have been provided above the used code.
 
       &:hover #urlbar-background {
         background: color-mix(in srgb, var(--natsumi-primary-color) 40%, transparent) !important;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.3) !important;
       }
     }
   }
@@ -574,11 +564,13 @@ their author(s) have been provided above the used code.
   @media (-moz-bool-pref: "natsumi.urlbar.compact") {
     @media not (-moz-bool-pref: "zen.view.use-single-toolbar") {
       @media (-moz-bool-pref: "zen.tabs.vertical") {
+
         #urlbar:not([breakout-extend="true"]) {
           --urlbar-anim-time: 0.2s;
+
           #urlbar-background {
             opacity: 1 !important;
-            transition: opacity var(--urlbar-anim-time) ease;
+            transition: opacity var(--urlbar-anim-time) ease, background-color 0.2s ease 0s, box-shadow 0.2s ease 0s;
           }
 
           .urlbar-input-container {
@@ -598,8 +590,14 @@ their author(s) have been provided above the used code.
           #tracking-protection-icon-container, .urlbar-page-action {
             transition: width var(--urlbar-anim-time) ease, opacity var(--urlbar-anim-time) ease, margin var(--urlbar-anim-time) ease;
           }
+        }
 
-          &:not(:hover):not([focused]):not(:has(.urlbar-page-action[open], #tracking-protection-icon-container[open], .identity-box-button[open])) {
+        #zen-appcontent-navbar-container:not(:hover) {
+          #urlbar:not([breakout-extend="true"]):not(:hover):not([focused]):not(:has(.urlbar-page-action[open], #tracking-protection-icon-container[open], .identity-box-button[open])) {
+            & > *, #tracking-protection-icon-container, .urlbar-page-action, #identity-icon-box {
+              transition-delay: 0.5s !important;
+            }
+
             #identity-icon-box {
               padding-left: 6px !important;
               padding-right: 6px !important;
@@ -614,6 +612,7 @@ their author(s) have been provided above the used code.
 
             #urlbar-background {
               opacity: 0 !important;
+              transition: opacity var(--urlbar-anim-time) ease, background-color 0.2s ease 0s, box-shadow 0s ease 0s !important;
             }
 
             .urlbar-input-container {

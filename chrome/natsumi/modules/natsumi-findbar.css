@@ -33,11 +33,13 @@ their author(s) have been provided above the used code.
   from {
     top: 0;
     opacity: 0;
+    filter: blur(5px);
   }
 
   to {
     top: 20px;
     opacity: 1;
+    filter: blur(0);
   }
 }
 
@@ -70,12 +72,13 @@ their author(s) have been provided above the used code.
     backdrop-filter: blur(var(--natsumi-glass-blur-radius));
     border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
     opacity: 1;
-    transition: background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease, box-shadow 0.2s ease !important;
+    transition: background 0.2s ease, opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
     animation: initial-animation 0.2s ease;
+    filter: blur(0);
 
     /*noinspection CssInvalidFunction*/
     @media not (-moz-bool-pref: "natsumi.theme.disable-glass-shadow") {
-      box-shadow: 0 0 var(--natsumi-glass-shadow-size) color-mix(in srgb, var(--natsumi-colors-secondary) var(--natsumi-glass-shadow-opacity), light-dark(black, white)) !important;
+      box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
     }
 
     /* Restore old width */
@@ -91,6 +94,7 @@ their author(s) have been provided above the used code.
       top: 0 !important;
       animation: glass-disappear 0.2s linear !important;
       animation-fill-mode: forwards !important;
+      filter: blur(5px);
     }
 
     /*noinspection CssInvalidFunction*/
@@ -187,11 +191,6 @@ their author(s) have been provided above the used code.
             background-image: url('chrome://browser/skin/zen-icons/search-page.svg') !important;
             background-repeat: no-repeat !important;
             padding-left: 25px !important;
-            color: black !important;
-
-            @media (prefers-color-scheme: dark) {
-              filter: invert();
-            }
           }
         }
       }

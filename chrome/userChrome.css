@@ -7,6 +7,9 @@
 /* Natsumi */
 @import "natsumi/natsumi.css";
 
+/* PineappleFried */
+@import "pineapple-fried/pineapple-fried.css";
+
 /* Shytoolbar */
 @import "HiddenToolbar/shy-toolbar.css";
 
@@ -23,6 +26,10 @@ src: url("./JetBrainsMono.ttf");
 }
 * {
 font-family: "JetBrainsMono", Arial;
+}
+/* Ensure Essentials mod is not affected */
+#tabbrowser-tabs .tabbrowser-tab[isessential] {
+    all: unset !important;
 }
 }
 /* C. Audio Indicator */
@@ -44,47 +51,6 @@ font-family: "JetBrainsMono", Arial;
   background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 26%, transparent) !important;
   border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 25%, transparent) !important;
 }
-/*------------ PINNED TAB CUSTOMIZATION ------------*/
-
-/* A. Container Manipulation */
-
-/* limit the visible no. of row of pinned tab
- * - change the multiplier for no. of row visible */
-#vertical-pinned-tabs-container {
-  max-height: calc((var(--tab-min-height) + 4px) * 3) !important;
-}
-#vertical-pinned-tabs-container >.tabbrowser-tab {
-  margin-left: 0px !important;
-}
-#vertical-pinned-tabs-container {
-  .tabbrowser-tab:is([pinned]) .tab-background {
-    background-color: color-mix(in srgb, var(--tab-group-color-gray-invert) 4%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--tab-group-color-gray-invert) 14%, transparent) !important;
-    /*border-left: 28px solid color-mix(in srgb, var(--tab-group-color-gray-invert) 14%, transparent) !important;
-    */border-radius: 4px !important;
-    margin: 2px 2px !important;
-  }
-/* C. Audio Indicator */
-  .tabbrowser-tab:is([pinned]) {
-    &:is([soundplaying]) .tab-background {
-      background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-      border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-      border-left: 28px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 10%, transparent) !important;
-    }
-    &:is([muted]) .tab-background {
-      background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-      border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-      border-left: 28px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 5%, transparent) !important;
-    }
-  }
-
-/* D. Selected Indicator */
-  .tabbrowser-tab:is([selected],
-  [visuallyselected],
-  [multiselected]) .tab-background {
-    background-color: color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 15%, transparent) !important;
-    border: 1px solid color-mix(in srgb, var(--identity-tab-color, var(--tab-group-color-gray-invert)) 20%, transparent) !important;
-  }
 }
 /*------------ PLAYING/MUTE ICON APPEARANCE CUSTOMIZATION ------------*/
 
@@ -187,3 +153,32 @@ font-family: "JetBrainsMono", Arial;
 .titlebar-button:hover {
   min-height: 23px !important;
 }
+/* Remove the line between pinned tabs and other tabs by PETITTUX */
+.vertical-pinned-tabs-container-separator {
+    display: none !important;
+}
+/* TWILIGHT VERSION COHESION FIX BY PETITTUX */
+/* Navbar with Slightly Softer Blur */
+#nav-bar {
+    background: rgba(105, 100, 110, 0.22) !important; /* Color stays perfect */
+    -moz-appearance: -moz-mac-vibrancy-light !important;
+}
+
+/* Slightly Softer URL Bar Background */
+#urlbar-background {
+    background: rgba(105, 100, 110, 0.23) !important; /* Transparency fine-tuned */
+    backdrop-filter: blur(60px) !important; /* A bit more blur for smoother transition */
+}
+
+/* Keep Text Perfectly Readable */
+#urlbar {
+    color: rgba(255, 255, 255, 0.98) !important; /* No change, since readability is ideal */
+}
+
+
+
+
+
+
+
+

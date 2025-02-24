@@ -43,13 +43,13 @@ their author(s) have been provided above the used code.
   }
 }
 
-@media (-moz-bool-pref: "zen.view.compact") {
+:root[zen-compact-mode="true"] {
   @media (-moz-bool-pref: "zen.view.compact.hide-toolbar") {
     /*noinspection CssInvalidFunction*/
     @media (-moz-bool-pref: "natsumi.navbar.glass-effect") {
       #zen-appcontent-navbar-container {
         padding: 0 !important;
-        width: calc(100vw - 2px) !important;
+        width: calc(100vw - 6px) !important;
         background: var(--natsumi-glass-background) !important;
         border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
         backdrop-filter: blur(var(--natsumi-glass-blur-radius)) !important;
@@ -60,7 +60,39 @@ their author(s) have been provided above the used code.
 
         /*noinspection CssInvalidFunction*/
         @media not (-moz-bool-pref: "natsumi.theme.disable-glass-shadow") {
-          box-shadow: 0 0 var(--natsumi-glass-shadow-size) color-mix(in srgb, var(--natsumi-colors-secondary) var(--natsumi-glass-shadow-opacity), light-dark(black, white)) !important;
+          box-shadow: 0 0 var(--natsumi-glass-shadow-size) var(--natsumi-glass-shadow-color) !important;
+        }
+      }
+
+      @media (-moz-bool-pref: "natsumi.navbar.float") {
+        #zen-appcontent-navbar-container {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          backdrop-filter: none !important;
+          padding: 5px !important;
+          padding-top: 6px !important;
+          padding-bottom: 0 !important;
+          width: calc(100% - 10px) !important;
+
+          /*noinspection CssInvalidFunction*/
+          &::after {
+            content: "";
+            background: var(--natsumi-glass-background) !important;
+            border: 1px solid light-dark(rgba(20, 20, 20, 0.2), rgba(235, 235, 235, 0.3)) !important;
+            backdrop-filter: blur(var(--natsumi-glass-blur-radius)) !important;
+            position: absolute;
+            width: calc(100% - 12px);
+            height: calc(100% - 7px);
+            top: 6px;
+            left: 5px;
+            z-index: -999;
+            border-radius: 6px !important;
+          }
+
+          &:not([zen-has-hover], [zen-user-show]) {
+            top: calc((-1 * var(--zen-toolbar-height)) + var(--zen-element-separation) - 4px) !important;
+          }
         }
       }
     }

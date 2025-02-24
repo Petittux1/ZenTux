@@ -117,21 +117,24 @@ their author(s) have been provided above the used code.
   }
 
   @media not (-moz-bool-pref: "natsumi.theme.disable-urlbar-animation") {
-    #urlbar-background {
-      overflow: hidden;
+    #urlbar:not([breakout-extend="true"]) {
+      #urlbar-background {
+        overflow: hidden;
 
-      /*noinspection CssInvalidFunction*/
-      &::before {
-        content: "";
-        transition: opacity var(--fadein-duration) ease !important;
-        opacity: 0;
-        width: 300%;
-        height: 100%;
-        position: absolute;
-        background: light-dark(
-                var(--natsumi-primary-color),
-                color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
-        ) !important;
+        /*noinspection CssInvalidFunction*/
+
+        &::before {
+          content: "";
+          transition: opacity var(--fadein-duration) ease !important;
+          opacity: 0;
+          width: 300%;
+          height: 100%;
+          position: absolute;
+          background: light-dark(
+                  var(--natsumi-primary-color),
+                  color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
+          ) !important;
+        }
       }
     }
   }
@@ -165,25 +168,28 @@ their author(s) have been provided above the used code.
     }
 
     @media not (-moz-bool-pref: "natsumi.theme.disable-urlbar-animation") {
-      #urlbar-background {
-        /*noinspection CssInvalidFunction*/
-        &::before {
-          animation: browser-urlbar-loading var(--animation-duration) linear infinite;
-          opacity: 1;
-          background: linear-gradient(
-                  90deg,
-                  light-dark(
-                          var(--natsumi-primary-color),
-                          color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
-                  ) 0%,
-                  var(--natsumi-colors-secondary) 33%,
-                  light-dark(
-                          var(--natsumi-primary-color),
-                          color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
-                  ) 66%,
-                  var(--natsumi-colors-secondary) 100%
-          ) !important;
-          transform: translateX(calc(var(--urlbar-width) * -2));
+      #urlbar:not([breakout-extend="true"]) {
+        #urlbar-background {
+          /*noinspection CssInvalidFunction*/
+
+          &::before {
+            animation: browser-urlbar-loading var(--animation-duration) linear infinite;
+            opacity: 1;
+            background: linear-gradient(
+                    90deg,
+                    light-dark(
+                            var(--natsumi-primary-color),
+                            color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
+                    ) 0%,
+                    var(--natsumi-colors-secondary) 33%,
+                    light-dark(
+                            var(--natsumi-primary-color),
+                            color-mix(in srgb, var(--natsumi-primary-color) 60%, transparent)
+                    ) 66%,
+                    var(--natsumi-colors-secondary) 100%
+            ) !important;
+            transform: translateX(calc(var(--urlbar-width) * -2));
+          }
         }
       }
     }
