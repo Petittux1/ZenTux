@@ -60,8 +60,9 @@ https://github.com/greeeen-dev/natsumi-browser
 ### -Super Url Bar (v1.4.2)
 ![图片](https://github.com/user-attachments/assets/0eeedf20-93f9-4cae-b918-a3a0396f477a)
 
-
 -Tab Preview Enhanced (v1.1.0)
+
+--------------------------------------------------------------------
 
 Pour les amis français, si vous avez un problème, n'hésitez pas à me le dire en français !
 中国朋友们如果有什么问题的话可以用中文跟我交流，我会说地道的中文 !
