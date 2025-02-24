@@ -10,6 +10,10 @@ In the usercontent.css, you will find some transparency tweaks and some other tw
 You will need github.com/Maplespe/DWMBlurGlass/issues to get the mica effect working.
 Some issues may still remain, i will make the github look better and be more understandable when i'll have time. (But all the files are there and ready to be downloaded)
 
+### NEW VERSION LOOK (1.1.0)
+![图片](https://github.com/user-attachments/assets/9eaa5e9f-f69d-4bc6-bf12-373222fe1ca2)
+
+### OLD VERSION (1.0.0)
 ![图片](https://github.com/user-attachments/assets/badbc24b-65f9-4482-9dff-5ad002f95647)
 ![图片](https://github.com/user-attachments/assets/cf41633a-1020-4c15-835f-e3f5ae25ae50)
 ![图片](https://github.com/user-attachments/assets/9a25dfa1-0d9d-4175-9154-44027f6a55d7)
