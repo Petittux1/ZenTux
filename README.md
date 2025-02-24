@@ -9,8 +9,11 @@ https://zen-browser.app/mods/6cd4bca9-f17d-4461-b554-844d69a4887c/
 In the usercontent.css, you will find some transparency tweaks and some other tweaks for the first tab page.
 You will need github.com/Maplespe/DWMBlurGlass/issues to get the mica effect working.
 Some issues may still remain, i will make the github look better and be more understandable when i'll have time. (But all the files are there and ready to be downloaded)
+### NEW VERSION LOOK (2.0.0) (OPTIMIZED FOR ZEN TWILIGHT ONLY)
+![图片](https://github.com/user-attachments/assets/de32dd0b-0f5d-4f0c-aef1-1c61366cedf1)
 
-### NEW VERSION LOOK (1.1.0)
+
+### OLD VERSION LOOK (1.1.0) (BETTER TO USE THIS VERSION ON NORMAL ZEN VERSION RIGHT NOW, YOU CAN TRY NEWEST VERSION BUT IT MAY BREAK SOME COLORS)
 ![图片](https://github.com/user-attachments/assets/9eaa5e9f-f69d-4bc6-bf12-373222fe1ca2)
 
 ### OLD VERSION (1.0.0)
