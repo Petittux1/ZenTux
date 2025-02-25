@@ -19,10 +19,44 @@ Some issues may still remain, i will make the github look better and be more und
 ### OLD VERSION (1.0.0)
 ![图片](https://github.com/user-attachments/assets/badbc24b-65f9-4482-9dff-5ad002f95647)
 
-### YOU WILL NEED TO MAKE CHANGES IN ABOUT:CONFIG, PLEASE CHECK NATSUMI GITHUB AND FOLLOW THE INSTRUCTIONS THERE ! 
+### YOU WILL NEED TO MAKE CHANGES IN ABOUT:CONFIG TO GET EVERYTHING WORKING
 ### YOU CAN FIND THE CHROME FOLDER IN ABOUT:SUPPORT --- yourprofile --- if there is no chrome folder just create one
-(Maybe i'll upload the instructions here after an update on my git !)
-https://github.com/greeeen-dev/natsumi-browser
+
+---------------------------------------------------------------------------------
+
+## Browser configs (in about:config) (COPIED FROM PINEAPPLE FRIED REPO)
+
+These are the configs you need to use. If they do not exist, type the config and click the + button to create it.
+
+### a): Zen options
+
+    browser.tabs.allow_transparent_browser = true*
+
+Note
+
+*Websites without a background will display the browser UI underneath the content.
+
+Extensions like Dark Reader fix this by setting their own background.
+### b): Natsumi options
+
+    natsumi.theme.clip-path-force-polygon: true
+    natsumi.sidebar.blur-zen-sidebar: true
+    natsumi.sidebar.containers-no-inactive-border: true
+    natsumi.sidebar.enable-tab-groups: true*
+    natsumi.sidebar.zen-sidebar-glass-effect: true
+
+### Pineapple Fried options
+
+    pf.use.natsumi-tweaks Set to true to enable Natsumi compatibility
+    pf.nt.no-container-gradient Set to true to remove the Contaier Gradient from Natsumi
+    pf.use.zen-menu-button Set to true to replace the menu button with the Zen logo
+    pf.use.window-buttons Autohide the Min Max and Close buttons for Multitoolbar mode
+
+-Natsumi Repo link : https://github.com/greeeen-dev/natsumi-browser
+
+-Pineapple Fried Repo link : https://github.com/TheBigWazz/Pineapple-Fried
+
+---------------------------------------------------------------------------
 
 # LIST OF ZEN MODS I'M USING ON TOP OF THESE CSS MODS :
 
