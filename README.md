@@ -10,8 +10,7 @@ In the usercontent.css, you will find some transparency tweaks and some other tw
 You will need github.com/Maplespe/DWMBlurGlass/issues to get the mica effect working.
 Some issues may still remain, i will make the github look better and be more understandable when i'll have time. (But all the files are there and ready to be downloaded)
 
-If it's your first time using CSS mods and you don't know how to use them, just type "about:support" in zen browser, then open your "profile folder" then just copy ZenTux's chrome folder inside the profile folder.
-After changing what you need to change in "about:config" (everything is explained in this readme), it should work properly !
+### If it's your first time using CSS mods and you don't know how to use them, just type "about:support" in zen browser, open your "profile folder", then just copy ZenTux's "chrome" folder inside the profile folder. After changing what you need to change in "about:config" (everything is explained in this readme), it should work properly !
 ### NEW VERSION LOOK (2.0.0) (OPTIMIZED FOR ZEN TWILIGHT ONLY)
 ![图片](https://github.com/user-attachments/assets/de32dd0b-0f5d-4f0c-aef1-1c61366cedf1)
 
